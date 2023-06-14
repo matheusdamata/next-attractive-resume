@@ -7,7 +7,7 @@ import {
   SelectLinkBackToHome,
 } from '../../styles/pages/select'
 
-import { cardConst } from './constants'
+import { optionsResume } from './constants'
 
 export default function Selecione() {
   return (
@@ -16,11 +16,11 @@ export default function Selecione() {
         <h2>Seleciona uma opção</h2>
 
         <SelectCardContent>
-          {cardConst.map((card) => (
+          {optionsResume.map((options) => (
             <CardCurriculo
-              key={card.text}
-              icon={card.icon as any}
-              text={card.text}
+              key={options.text}
+              icon={options.icon as any}
+              text={options.text}
             />
           ))}
         </SelectCardContent>
