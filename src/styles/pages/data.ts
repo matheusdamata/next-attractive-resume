@@ -3,7 +3,6 @@ import { styled } from '..'
 export const DataContainer = styled('div', {
   display: 'flex',
   alignItems: 'center',
-  // justifyContent: 'center',
   flexDirection: 'column',
 
   width: '100%',

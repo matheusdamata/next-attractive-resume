@@ -6,7 +6,6 @@ export const ResumeSimulatorContainer = styled('div', {
 
   width: '496px',
   height: '701px',
-  // height: 'calc(100vh - 7rem)',
 
   padding: '1rem',
 
@@ -92,7 +91,6 @@ export const ResumeSimulatorBodyRight = styled('div', {
 
   width: '100%',
   height: '100%',
-  // 570px
 
   borderLeft: '3px solid $purple600',
 

@@ -1,7 +1,5 @@
 import Head from 'next/head'
 
-// import ReactPlayer from 'react-player'
-
 import {
   HomeAlertBox,
   HomeAlertBoxContainer,
