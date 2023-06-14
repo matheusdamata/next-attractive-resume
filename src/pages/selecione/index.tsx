@@ -7,7 +7,7 @@ import {
   SelectLinkBackToHome,
 } from '../../styles/pages/select'
 
-import { cardConst } from './cardConst'
+import { cardConst } from './constants'
 
 export default function Selecione() {
   return (

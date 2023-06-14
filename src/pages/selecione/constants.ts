@@ -1,4 +1,4 @@
-export const cardConst = [
+export const optionsResume = [
   {
     icon: 'card-curriculo',
     text: 'Otimizado',
