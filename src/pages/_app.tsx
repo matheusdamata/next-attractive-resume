@@ -1,5 +1,4 @@
 import type { AppProps } from 'next/app'
-import { SessionProvider } from 'next-auth/react'
 
 import { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
@@ -13,14 +12,12 @@ globalStyles()
 
 export default function App({
   Component,
-  pageProps: { session, ...pageProps },
+  pageProps: { ...pageProps },
 }: AppProps) {
   return (
-    <SessionProvider session={session}>
-      <SkeletonTheme>
-        <Component {...pageProps} />
-        <ToastContainer />
-      </SkeletonTheme>
-    </SessionProvider>
+    <SkeletonTheme>
+      <Component {...pageProps} />
+      <ToastContainer />
+    </SkeletonTheme>
   )
 }
