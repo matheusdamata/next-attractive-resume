@@ -1,16 +1,13 @@
-import Link from 'next/link'
 import { styled } from '..'
 
 export const DataContainer = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  flexDirection: 'row',
+  flexDirection: 'column',
 
   width: '100%',
   height: '100vh',
-
-  gap: '1rem',
 
   footer: {
     display: 'flex',
@@ -19,6 +16,14 @@ export const DataContainer = styled('div', {
 
     height: '60px',
   },
+})
+
+export const DataContent = styled('div', {
+  display: 'flex',
+  flexDirection: 'row',
+
+  padding: '1rem',
+  gap: '3rem',
 })
 
 export const DataSideLeft = styled('div', {
@@ -85,19 +90,29 @@ export const DataButton = styled('button', {
   justifyContent: 'center',
 
   width: '200px',
-  height: '40px',
 
   gap: '0.5rem',
 
-  fontSize: '14px',
-  fontWeight: 'bold',
-  color: '$white',
+  variants: {
+    options: {
+      withBackground: {
+        height: '40px',
 
-  background: '$purple600',
-})
+        fontSize: '14px',
+        fontWeight: 'bold',
+        color: '$white',
 
-export const DataLink = styled(Link, {
-  fontSize: '0.875rem',
-  textDecoration: 'none',
-  color: '$purple600',
+        background: '$purple600',
+      },
+      withEdge: {
+        height: '20px',
+
+        fontSize: '14px',
+        fontWeight: 400,
+        color: '$purple600',
+
+        background: 'transparent',
+      },
+    },
+  },
 })

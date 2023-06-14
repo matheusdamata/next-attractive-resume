@@ -46,6 +46,10 @@ export const globalStyles = globalCss({
     border: 0,
   },
 
+  a: {
+    textDecoration: 'none',
+  },
+
   'button:not(:disabled):hover': {
     opacity: 0.7,
   },

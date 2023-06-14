@@ -2,22 +2,27 @@ import { styled } from '..'
 
 export const ResumeSimulatorContainer = styled('div', {
   display: 'flex',
+  flexDirection: 'column',
 
-  width: '400px',
+  width: '496px',
   height: 'calc(100vh - 7rem)',
 
-  padding: '2rem 1rem',
+  padding: '1rem',
 
   background: '$white',
 })
 
 export const ResumeSimulatorHeader = styled('div', {
   display: 'flex',
+
+  width: '100%',
 })
 
 export const ResumeSimulatorHeaderLeft = styled('div', {
   display: 'flex',
   flexDirection: 'column',
+
+  width: '100%',
 
   h1: {
     fontSize: '1.125rem',
@@ -39,4 +44,51 @@ export const ResumeSimulatorHeaderLeft = styled('div', {
 
 export const ResumeSimulatorHeaderRight = styled('div', {
   display: 'flex',
+  flexDirection: 'column',
+
+  width: '100%',
+
+  gap: '0.25rem',
+
+  div: {
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: '0.5rem',
+
+    fontSize: '0.625rem',
+    fontWeight: 600,
+    color: '$purple600',
+  },
+
+  svg: {
+    color: '$purple600',
+  },
+})
+
+export const ResumeSimulatorBody = styled('div', {
+  display: 'flex',
+
+  width: '100%',
+})
+
+export const ResumeSimulatorBodyLeft = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+
+  width: '100%',
+
+  gap: '0.25rem',
+})
+
+export const ResumeSimulatorBodyRight = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+
+  width: '100%',
+  height: '500px',
+
+  borderLeft: '3px solid $purple600',
+  margin: '50px 0 0',
+  gap: '0.25rem',
 })
