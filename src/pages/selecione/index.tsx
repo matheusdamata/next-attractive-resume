@@ -7,7 +7,7 @@ import {
   SelectLinkBackToHome,
 } from '../../styles/pages/select'
 
-import { optionsResume } from './constants'
+import { optionsResume } from '../../data/constants'
 
 export default function Selecione() {
   return (
