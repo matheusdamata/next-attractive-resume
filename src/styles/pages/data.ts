@@ -3,7 +3,7 @@ import { styled } from '..'
 export const DataContainer = styled('div', {
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
+  // justifyContent: 'center',
   flexDirection: 'column',
 
   width: '100%',
@@ -21,6 +21,12 @@ export const DataContainer = styled('div', {
 export const DataContent = styled('div', {
   display: 'flex',
   flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+
+  width: '100%',
+  maxWidth: '1120px',
+  height: '100%',
 
   padding: '1rem',
   gap: '3rem',
@@ -30,7 +36,7 @@ export const DataSideLeft = styled('div', {
   display: 'flex',
   flexDirection: 'column',
 
-  width: '21.875rem',
+  width: '450px',
 })
 
 export const DataSideLeftContent = styled('div', {
@@ -40,7 +46,7 @@ export const DataSideLeftContent = styled('div', {
   justifyContent: 'center',
 
   width: '100%',
-  maxWidth: '28.125rem',
+  maxWidth: '450px',
   height: '100%',
 
   gap: '1rem',
@@ -52,13 +58,14 @@ export const DataInputContainer = styled('form', {
 
   width: '100%',
 
-  gap: '0.5rem',
+  gap: '0.75rem',
 
   input: {
     width: '100%',
+    height: '3.5rem',
 
-    borderRadius: 8,
-    padding: '0.5rem 1rem',
+    borderRadius: 10,
+    padding: '0 1rem',
 
     color: '$gray300',
 
@@ -74,7 +81,7 @@ export const DataInputContainer = styled('form', {
 
     padding: '0.5rem 1rem',
 
-    color: '$gray500',
+    color: '$gray300',
 
     background: '$gray700',
 

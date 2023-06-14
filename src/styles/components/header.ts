@@ -6,7 +6,7 @@ export const HeaderContainer = styled('div', {
   justifyContent: 'space-between',
 
   width: '100%',
-  maxWidth: '1120px',
+  maxWidth: '70rem',
   height: '5rem',
 
   borderBottom: '1px solid $gray700',
@@ -18,7 +18,7 @@ export const HeaderContainer = styled('div', {
   nav: {
     display: 'flex',
 
-    gap: '1rem',
+    gap: '2rem',
 
     a: {
       color: '$white',

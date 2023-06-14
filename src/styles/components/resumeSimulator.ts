@@ -5,7 +5,8 @@ export const ResumeSimulatorContainer = styled('div', {
   flexDirection: 'column',
 
   width: '496px',
-  height: 'calc(100vh - 7rem)',
+  height: '701px',
+  // height: 'calc(100vh - 7rem)',
 
   padding: '1rem',
 
@@ -48,6 +49,7 @@ export const ResumeSimulatorHeaderRight = styled('div', {
 
   width: '100%',
 
+  padding: '0 0 0 0.5rem',
   gap: '0.25rem',
 
   div: {
@@ -70,6 +72,9 @@ export const ResumeSimulatorBody = styled('div', {
   display: 'flex',
 
   width: '100%',
+  height: '100%',
+
+  margin: '50px 0 0',
 })
 
 export const ResumeSimulatorBodyLeft = styled('div', {
@@ -86,9 +91,10 @@ export const ResumeSimulatorBodyRight = styled('div', {
   flexDirection: 'column',
 
   width: '100%',
-  height: '500px',
+  height: '100%',
+  // 570px
 
   borderLeft: '3px solid $purple600',
-  margin: '50px 0 0',
+
   gap: '0.25rem',
 })

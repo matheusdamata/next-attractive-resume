@@ -103,7 +103,7 @@ export default function Data() {
           </DataSideLeft>
 
           <ResumeSimulator
-            name={name}
+            name={name.toLowerCase()}
             office={office}
             bio={bio}
             linkedin={linkedin}

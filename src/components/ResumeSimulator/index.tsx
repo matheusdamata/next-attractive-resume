@@ -8,7 +8,7 @@ import {
   ResumeSimulatorHeaderLeft,
   ResumeSimulatorHeaderRight,
 } from '../../styles/components/resumeSimulator'
-import { formatterName } from '../../utils/formatter'
+import { formatterLink, formatterName } from '../../utils/formatter'
 
 type ResumeSimulatorProps = {
   name: string
@@ -39,17 +39,17 @@ export function ResumeSimulator({
         <ResumeSimulatorHeaderRight>
           <div>
             <LinkedinLogo size={16} weight="duotone" />
-            {linkedin}
+            {formatterLink(linkedin)}
           </div>
 
           <div>
             <GithubLogo size={16} weight="duotone" />
-            {github}
+            {formatterLink(github)}
           </div>
 
           <div>
             <Globe size={16} weight="duotone" />
-            {website}
+            {formatterLink(website)}
           </div>
         </ResumeSimulatorHeaderRight>
       </ResumeSimulatorHeader>
