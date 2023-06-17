@@ -48,7 +48,7 @@ export const HomeContainer = styled('div', {
       fontWeight: 'bold',
       color: '$white',
 
-      margin: '1rem 0 0',
+      // margin: '1rem 0 0',
 
       background: '$purple600',
 
@@ -80,10 +80,12 @@ export const HomeAlertBox = styled('div', {
   background: 'rgba(161, 0, 237, 0.05)',
 
   p: {
+    fontSize: '0.875rem',
     color: '$gray300',
   },
 
   b: {
+    fontSize: '0.875rem',
     color: '$purple600',
   },
 })

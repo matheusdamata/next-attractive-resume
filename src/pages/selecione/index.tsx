@@ -1,5 +1,5 @@
 import { CardCurriculo } from '../../components/CardCurriculo'
-import { StepOptions } from '../../components/StepOptions'
+
 import {
   SelectCardContainer,
   SelectCardContent,
@@ -27,10 +27,6 @@ export default function Selecione() {
 
         <SelectLinkBackToHome href="/">Voltar para Home</SelectLinkBackToHome>
       </SelectCardContainer>
-
-      <footer>
-        <StepOptions options={1} />
-      </footer>
     </SelectContainer>
   )
 }

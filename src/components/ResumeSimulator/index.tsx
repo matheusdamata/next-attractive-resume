@@ -1,4 +1,7 @@
+import { Document, Page, View } from '@react-pdf/renderer'
+
 import { GithubLogo, Globe, LinkedinLogo } from '@phosphor-icons/react'
+
 import {
   ResumeSimulatorBody,
   ResumeSimulatorBodyLeft,
@@ -17,47 +20,56 @@ type ResumeSimulatorProps = {
   linkedin: string
   github: string
   website: string
+  step: number
 }
 
-export function ResumeSimulator({
+const ResumeSimulator = ({
   name,
   office,
   bio,
   linkedin,
   github,
   website,
-}: ResumeSimulatorProps) {
+  step,
+}: ResumeSimulatorProps) => {
   return (
-    <ResumeSimulatorContainer>
-      <ResumeSimulatorHeader>
-        <ResumeSimulatorHeaderLeft>
-          <h1>{formatterName(name) || 'Seu nome'}</h1>
-          <strong>Desenvolvedor {office || '...'}</strong>
-          <p>{bio || 'Sua biográfia...'}</p>
-        </ResumeSimulatorHeaderLeft>
+    <Document>
+      <Page size="A4">
+        <View>
+          <ResumeSimulatorContainer>
+            <ResumeSimulatorHeader>
+              <ResumeSimulatorHeaderLeft>
+                <h1>{formatterName(name) || 'Seu nome'}</h1>
+                <strong>Desenvolvedor {office || '...'}</strong>
+                <p>{bio || 'Sua biográfia...'}</p>
+              </ResumeSimulatorHeaderLeft>
+              <ResumeSimulatorHeaderRight>
+                <div>
+                  <LinkedinLogo size={16} weight="duotone" />
+                  {formatterLink(linkedin)}
+                </div>
 
-        <ResumeSimulatorHeaderRight>
-          <div>
-            <LinkedinLogo size={16} weight="duotone" />
-            {formatterLink(linkedin)}
-          </div>
+                <div>
+                  <GithubLogo size={16} weight="duotone" />
+                  {formatterLink(github)}
+                </div>
 
-          <div>
-            <GithubLogo size={16} weight="duotone" />
-            {formatterLink(github)}
-          </div>
+                <div>
+                  <Globe size={16} weight="duotone" />
+                  {formatterLink(website)}
+                </div>
+              </ResumeSimulatorHeaderRight>
+            </ResumeSimulatorHeader>
 
-          <div>
-            <Globe size={16} weight="duotone" />
-            {formatterLink(website)}
-          </div>
-        </ResumeSimulatorHeaderRight>
-      </ResumeSimulatorHeader>
-
-      <ResumeSimulatorBody>
-        <ResumeSimulatorBodyLeft></ResumeSimulatorBodyLeft>
-        <ResumeSimulatorBodyRight></ResumeSimulatorBodyRight>
-      </ResumeSimulatorBody>
-    </ResumeSimulatorContainer>
+            <ResumeSimulatorBody>
+              <ResumeSimulatorBodyLeft></ResumeSimulatorBodyLeft>
+              <ResumeSimulatorBodyRight></ResumeSimulatorBodyRight>
+            </ResumeSimulatorBody>
+          </ResumeSimulatorContainer>
+        </View>
+      </Page>
+    </Document>
   )
 }
+
+export default ResumeSimulator

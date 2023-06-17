@@ -41,7 +41,7 @@ export const DataSideLeft = styled('div', {
 export const DataSideLeftContent = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'center',
+
   justifyContent: 'center',
 
   width: '100%',
@@ -88,6 +88,17 @@ export const DataInputContainer = styled('form', {
       color: '$gray500',
     },
   },
+})
+
+export const DataButtonContainer = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'column',
+
+  width: '100%',
+
+  gap: '1rem',
 })
 
 export const DataButton = styled('button', {

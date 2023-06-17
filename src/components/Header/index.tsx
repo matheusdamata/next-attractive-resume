@@ -10,7 +10,7 @@ export function Header() {
       <nav>
         <Link href="/">Inícios</Link>
         <Link href="/">Postagens</Link>
-        <Link href="/">Fale conosco</Link>
+        {/* <Link href="/">Fale conosco</Link> */}
       </nav>
 
       <SignInButton />

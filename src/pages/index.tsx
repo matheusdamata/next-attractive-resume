@@ -22,21 +22,21 @@ export default function Home() {
             Programador <span>ATRATIVO.</span>
           </h1>
 
+          <HomeAlertBoxContainer>
+            <HomeAlertBox>
+              <p>
+                O primeiro passo para <b>se tornar um desenvolvedor</b> é criar
+                um currículo atrativo. A maioria dos recrutadores não passa
+                muito tempo revisando currículos de programadores web. Na
+                verdade, eles geralmente analisam cada currículo por,{' '}
+                <b>em média, 6 segundos</b> antes de decidir se o candidato se
+                encaixa na descrição da vaga.
+              </p>
+            </HomeAlertBox>
+          </HomeAlertBoxContainer>
+
           <Link href="/selecione">Começar</Link>
         </section>
-
-        <HomeAlertBoxContainer>
-          <HomeAlertBox>
-            <p>
-              O primeiro passo para <b>se tornar um desenvolvedor</b> é criar um
-              currículo atrativo. A maioria dos recrutadores não passa muito
-              tempo revisando currículos de programadores web. Na verdade, eles
-              geralmente analisam cada currículo por,{' '}
-              <b>em média, 6 segundos</b> antes de decidir se o candidato se
-              encaixa na descrição da vaga.
-            </p>
-          </HomeAlertBox>
-        </HomeAlertBoxContainer>
       </HomeContainer>
     </>
   )

@@ -14,6 +14,10 @@ export function StepOptions({ options }: StepOptionsProps) {
             <StepOptionsCircle active="true" />
             <StepOptionsCircle />
             <StepOptionsCircle />
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+            <StepOptionsCircle />
           </StepOptionsContent>
         )
       case 2:
@@ -22,11 +26,67 @@ export function StepOptions({ options }: StepOptionsProps) {
             <StepOptionsCircle />
             <StepOptionsCircle active="true" />
             <StepOptionsCircle />
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+            <StepOptionsCircle />
           </StepOptionsContent>
         )
       case 3:
         return (
           <StepOptionsContent>
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+            <StepOptionsCircle active="true" />
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+          </StepOptionsContent>
+        )
+      case 4:
+        return (
+          <StepOptionsContent>
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+            <StepOptionsCircle active="true" />
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+          </StepOptionsContent>
+        )
+      case 5:
+        return (
+          <StepOptionsContent>
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+            <StepOptionsCircle active="true" />
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+          </StepOptionsContent>
+        )
+      case 6:
+        return (
+          <StepOptionsContent>
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+            <StepOptionsCircle active="true" />
+            <StepOptionsCircle />
+          </StepOptionsContent>
+        )
+      case 7:
+        return (
+          <StepOptionsContent>
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+            <StepOptionsCircle />
+            <StepOptionsCircle />
             <StepOptionsCircle />
             <StepOptionsCircle />
             <StepOptionsCircle active="true" />

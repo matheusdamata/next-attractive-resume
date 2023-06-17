@@ -11,14 +11,6 @@ export const SelectContainer = styled('div', {
   height: '100vh',
 
   gap: '1rem',
-
-  footer: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    height: '60px',
-  },
 })
 
 export const SelectCardContainer = styled('div', {
