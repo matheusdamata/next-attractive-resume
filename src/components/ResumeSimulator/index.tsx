@@ -1,5 +1,3 @@
-import { Document, Page, View } from '@react-pdf/renderer'
-
 import { GithubLogo, Globe, LinkedinLogo } from '@phosphor-icons/react'
 
 import {
@@ -12,6 +10,7 @@ import {
   ResumeSimulatorHeaderRight,
 } from '../../styles/components/resumeSimulator'
 import { formatterLink, formatterName } from '../../utils/formatter'
+import axios from 'axios'
 
 type ResumeSimulatorProps = {
   name: string
@@ -32,43 +31,50 @@ const ResumeSimulator = ({
   website,
   step,
 }: ResumeSimulatorProps) => {
+  async function handleConverPDF() {
+    try {
+      const res = await axios.post('/api/pdf/convert', {
+        data: JSON.stringify(
+          '<html><body><h1>Exemplo de conteúdo para o PDF</h1></body></html>',
+        ),
+      })
+    } catch (error) {
+      console.error(error)
+    }
+  }
   return (
-    <Document>
-      <Page size="A4">
-        <View>
-          <ResumeSimulatorContainer>
-            <ResumeSimulatorHeader>
-              <ResumeSimulatorHeaderLeft>
-                <h1>{formatterName(name) || 'Seu nome'}</h1>
-                <strong>Desenvolvedor {office || '...'}</strong>
-                <p>{bio || 'Sua biográfia...'}</p>
-              </ResumeSimulatorHeaderLeft>
-              <ResumeSimulatorHeaderRight>
-                <div>
-                  <LinkedinLogo size={16} weight="duotone" />
-                  {formatterLink(linkedin)}
-                </div>
+    <ResumeSimulatorContainer>
+      <ResumeSimulatorHeader>
+        <ResumeSimulatorHeaderLeft>
+          <h1>{formatterName(name) || 'Seu nome'}</h1>
+          <strong>Desenvolvedor {office || '...'}</strong>
+          <p>{bio || 'Sua biográfia...'}</p>
+        </ResumeSimulatorHeaderLeft>
+        <ResumeSimulatorHeaderRight>
+          <div>
+            <LinkedinLogo size={16} weight="duotone" />
+            {formatterLink(linkedin)}
+          </div>
 
-                <div>
-                  <GithubLogo size={16} weight="duotone" />
-                  {formatterLink(github)}
-                </div>
+          <div>
+            <GithubLogo size={16} weight="duotone" />
+            {formatterLink(github)}
+          </div>
 
-                <div>
-                  <Globe size={16} weight="duotone" />
-                  {formatterLink(website)}
-                </div>
-              </ResumeSimulatorHeaderRight>
-            </ResumeSimulatorHeader>
+          <div>
+            <Globe size={16} weight="duotone" />
+            {formatterLink(website)}
+          </div>
+        </ResumeSimulatorHeaderRight>
+      </ResumeSimulatorHeader>
 
-            <ResumeSimulatorBody>
-              <ResumeSimulatorBodyLeft></ResumeSimulatorBodyLeft>
-              <ResumeSimulatorBodyRight></ResumeSimulatorBodyRight>
-            </ResumeSimulatorBody>
-          </ResumeSimulatorContainer>
-        </View>
-      </Page>
-    </Document>
+      <ResumeSimulatorBody>
+        <ResumeSimulatorBodyLeft></ResumeSimulatorBodyLeft>
+        <ResumeSimulatorBodyRight></ResumeSimulatorBodyRight>
+      </ResumeSimulatorBody>
+
+      <button onClick={handleConverPDF}>DOWNLOAD</button>
+    </ResumeSimulatorContainer>
   )
 }
 
