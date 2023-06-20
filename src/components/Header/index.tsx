@@ -8,7 +8,7 @@ export function Header() {
       <strong>OC.</strong>
 
       <nav>
-        <Link href="/">Inícios</Link>
+        <Link href="/">Início</Link>
         <Link href="/">Blog</Link>
       </nav>
 
