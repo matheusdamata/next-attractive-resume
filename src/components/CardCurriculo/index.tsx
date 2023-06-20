@@ -1,5 +1,8 @@
 import { BookOpenText, BookOpen } from '@phosphor-icons/react'
-import { CardCurriculoContainer } from '../../styles/components/cardCurriculo'
+import {
+  CardCurriculoContainer,
+  CardCurriculoDisabled,
+} from '../../styles/components/cardCurriculo'
 import { CardCurriculoProps } from '../../types/componentsGlobal'
 
 export function CardCurriculo({ icon, text }: CardCurriculoProps) {
@@ -13,9 +16,16 @@ export function CardCurriculo({ icon, text }: CardCurriculoProps) {
   }
 
   return (
-    <CardCurriculoContainer href="/dados">
+    <CardCurriculoContainer
+      href={text === 'Essencial' ? '/dados' : '/selecione'}
+      disabled={text === 'Enxuto' ? true : undefined}
+    >
       {handleIconCardCurriculo(icon)}
       <span>{text}</span>
+
+      {text === 'Enxuto' ? (
+        <CardCurriculoDisabled>Em breve</CardCurriculoDisabled>
+      ) : null}
     </CardCurriculoContainer>
   )
 }

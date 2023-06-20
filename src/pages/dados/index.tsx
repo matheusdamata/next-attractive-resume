@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import ResumeSimulator from '../../components/ResumeSimulator'
 import { StepOptions } from '../../components/StepOptions'
 import {
@@ -14,6 +14,8 @@ import { CaretRight } from 'phosphor-react'
 import Head from 'next/head'
 import { Header } from '../../components/Header'
 import { PDFDownloadLink } from '@react-pdf/renderer'
+import axios from 'axios'
+import fileDownload from 'js-file-download'
 
 export default function Data() {
   // step 1
@@ -42,9 +44,18 @@ export default function Data() {
 
   const [step, setStep] = useState(1)
 
-  useEffect(() => {
-    console.log(step)
-  }, [step])
+  async function handleTest() {
+    try {
+      const response = await axios.get('/api/pdf/convert')
+
+      const pdf = await fetch(`./temp/${response.data.name}.pdf`)
+      const pdfBlob = await pdf.blob()
+
+      fileDownload(pdfBlob, `${response.data.name}.pdf`)
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return (
     <>
@@ -84,6 +95,8 @@ export default function Data() {
                       onChange={(e) => setBio(e.target.value)}
                     />
                   </DataInputContainer>
+
+                  <button onClick={handleTest}>Download</button>
                 </>
               ) : step === 2 ? (
                 <>
@@ -257,7 +270,6 @@ export default function Data() {
                         linkedin={linkedin}
                         github={github}
                         website={website}
-                        step={step}
                       />
                     }
                     fileName="xereca"
@@ -286,7 +298,6 @@ export default function Data() {
             linkedin={linkedin}
             github={github}
             website={website}
-            step={step}
           />
         </DataContent>
       </DataContainer>

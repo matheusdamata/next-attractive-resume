@@ -28,4 +28,19 @@ export const CardCurriculoContainer = styled(Link, {
   '&:hover': {
     filter: 'brightness(0.8)',
   },
+
+  variants: {
+    disabled: {
+      true: {
+        opacity: 0.7,
+
+        cursor: 'not-allowed',
+      },
+    },
+  },
+})
+
+export const CardCurriculoDisabled = styled('span', {
+  fontSize: '0.75rem',
+  color: '$purple600',
 })

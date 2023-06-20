@@ -1,7 +1,7 @@
 export const optionsResume = [
   {
     icon: 'card-curriculo',
-    text: 'Otimizado',
+    text: 'Essencial',
     url: 'card-curriculo',
   },
   {
