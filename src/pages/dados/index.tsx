@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import Head from 'next/head'
+
 import ResumeSimulator from '../../components/ResumeSimulator'
 import { StepOptions } from '../../components/StepOptions'
 import {
@@ -10,10 +12,10 @@ import {
   DataSideLeft,
   DataSideLeftContent,
 } from '../../styles/pages/data'
-import { CaretRight } from 'phosphor-react'
-import Head from 'next/head'
 import { Header } from '../../components/Header'
-import { PDFDownloadLink } from '@react-pdf/renderer'
+
+import { CaretRight } from 'phosphor-react'
+
 import axios from 'axios'
 import fileDownload from 'js-file-download'
 
@@ -60,7 +62,7 @@ export default function Data() {
   return (
     <>
       <Head>
-        <title>Preencha seus dados - Currículo</title>
+        <title>Dados | Serei Contratado</title>
       </Head>
 
       <DataContainer>
@@ -259,30 +261,6 @@ export default function Data() {
                     Voltar
                   </DataButton>
                 )}
-
-                {step === 7 ? (
-                  <PDFDownloadLink
-                    document={
-                      <ResumeSimulator
-                        name={name.toLowerCase()}
-                        office={office}
-                        bio={bio}
-                        linkedin={linkedin}
-                        github={github}
-                        website={website}
-                      />
-                    }
-                    fileName="xereca"
-                  >
-                    {({ loading }) =>
-                      loading ? (
-                        <button>Loading</button>
-                      ) : (
-                        <button>Download</button>
-                      )
-                    }
-                  </PDFDownloadLink>
-                ) : null}
               </DataButtonContainer>
             </DataSideLeftContent>
 
@@ -298,6 +276,7 @@ export default function Data() {
             linkedin={linkedin}
             github={github}
             website={website}
+            option="simulator"
           />
         </DataContent>
       </DataContainer>

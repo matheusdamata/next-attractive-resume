@@ -4,12 +4,22 @@ export const ResumeSimulatorContainer = styled('div', {
   display: 'flex',
   flexDirection: 'column',
 
-  width: '496px',
-  height: '701px',
-
   padding: '1rem',
 
   background: '$white',
+
+  variants: {
+    options: {
+      simulator: {
+        width: '31rem',
+        height: '43.8125rem',
+      },
+      finished: {
+        width: '210mm',
+        height: '297mm',
+      },
+    },
+  },
 })
 
 export const ResumeSimulatorHeader = styled('div', {
@@ -24,21 +34,45 @@ export const ResumeSimulatorHeaderLeft = styled('div', {
 
   width: '100%',
 
-  h1: {
-    fontSize: '1.125rem',
-    color: '$purple600',
-  },
+  variants: {
+    options: {
+      simulator: {
+        h1: {
+          fontSize: '1.25rem',
+          color: '$purple600',
+        },
 
-  strong: {
-    fontSize: '0.625rem',
-    color: '$purple600',
+        strong: {
+          fontSize: '0.75rem',
+          color: '$purple600',
 
-    margin: '1rem 0 0',
-  },
+          margin: '1rem 0 0',
+        },
 
-  p: {
-    fontSize: '0.625rem',
-    color: '$gray800',
+        p: {
+          fontSize: '0.5rem',
+          color: '$gray800',
+        },
+      },
+      finished: {
+        h1: {
+          fontSize: '28px',
+          color: '$purple600',
+        },
+
+        strong: {
+          fontSize: '16px',
+          color: '$purple600',
+
+          margin: '1rem 0 0',
+        },
+
+        p: {
+          fontSize: '14px',
+          color: '$gray800',
+        },
+      },
+    },
   },
 })
 
@@ -56,14 +90,29 @@ export const ResumeSimulatorHeaderRight = styled('div', {
     alignItems: 'center',
     flexDirection: 'row',
     gap: '0.5rem',
-
-    fontSize: '0.625rem',
-    fontWeight: 600,
-    color: '$purple600',
   },
 
   svg: {
     color: '$purple600',
+  },
+
+  variants: {
+    options: {
+      simulator: {
+        div: {
+          fontSize: '10px',
+          fontWeight: 600,
+          color: '$purple600',
+        },
+      },
+      finished: {
+        div: {
+          fontSize: '14px',
+          fontWeight: 600,
+          color: '$purple600',
+        },
+      },
+    },
   },
 })
 
@@ -95,4 +144,15 @@ export const ResumeSimulatorBodyRight = styled('div', {
   borderLeft: '3px solid $purple600',
 
   gap: '0.25rem',
+
+  variants: {
+    options: {
+      simulator: {
+        borderLeft: '3px solid $purple600',
+      },
+      finished: {
+        borderLeft: '5px solid $purple600',
+      },
+    },
+  },
 })

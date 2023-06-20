@@ -1,15 +1,16 @@
-import Link from 'next/link'
 import { HeaderContainer } from '../../styles/components/header'
 import { SignInButton } from '../SignInButton'
+import { ActiveLink } from '../ActiveLink'
 
 export function Header() {
   return (
     <HeaderContainer>
-      <strong>OC.</strong>
+      <strong>SC</strong>
 
       <nav>
-        <Link href="/">Início</Link>
-        <Link href="/">Blog</Link>
+        <ActiveLink href="/" text="Ínicio" />
+        <ActiveLink href="/dados" text="Dados" />
+        <ActiveLink href="/blog" text="Bog" />
       </nav>
 
       <SignInButton />

@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Matheus da Mata - Portfólio</title>
+        <title>Crie seu currículo | Serei Contratado</title>
       </Head>
 
       <HomeContainer>

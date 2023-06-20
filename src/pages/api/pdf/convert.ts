@@ -26,7 +26,7 @@ export default async function handle(
     await page.pdf({
       path: `./public/temp/${nameUID}.pdf`,
       margin: { top: '0', right: '0', bottom: '0', left: '0' },
-      printBackground: true,
+      printBackground: false,
       format: 'A4',
     })
 

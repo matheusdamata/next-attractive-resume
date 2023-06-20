@@ -18,6 +18,7 @@ type ResumeSimulatorProps = {
   linkedin: string
   github: string
   website: string
+  option: 'simulator' | 'finished'
 }
 
 const ResumeSimulator = ({
@@ -27,28 +28,36 @@ const ResumeSimulator = ({
   linkedin,
   github,
   website,
+  option,
 }: ResumeSimulatorProps) => {
   return (
-    <ResumeSimulatorContainer>
+    <ResumeSimulatorContainer options={option}>
       <ResumeSimulatorHeader>
-        <ResumeSimulatorHeaderLeft>
+        <ResumeSimulatorHeaderLeft options={option}>
           <h1>{formatterName(name) || 'Seu nome'}</h1>
           <strong>Desenvolvedor {office || '...'}</strong>
           <p>{bio || 'Sua biográfia...'}</p>
         </ResumeSimulatorHeaderLeft>
-        <ResumeSimulatorHeaderRight>
+
+        <ResumeSimulatorHeaderRight options={option}>
           <div>
-            <LinkedinLogo size={16} weight="duotone" />
+            <LinkedinLogo
+              size={option === 'simulator' ? 16 : 22}
+              weight="duotone"
+            />
             {formatterLink(linkedin)}
           </div>
 
           <div>
-            <GithubLogo size={16} weight="duotone" />
+            <GithubLogo
+              size={option === 'simulator' ? 16 : 22}
+              weight="duotone"
+            />
             {formatterLink(github)}
           </div>
 
           <div>
-            <Globe size={16} weight="duotone" />
+            <Globe size={option === 'simulator' ? 16 : 22} weight="duotone" />
             {formatterLink(website)}
           </div>
         </ResumeSimulatorHeaderRight>
@@ -56,7 +65,7 @@ const ResumeSimulator = ({
 
       <ResumeSimulatorBody>
         <ResumeSimulatorBodyLeft></ResumeSimulatorBodyLeft>
-        <ResumeSimulatorBodyRight></ResumeSimulatorBodyRight>
+        <ResumeSimulatorBodyRight options={option}></ResumeSimulatorBodyRight>
       </ResumeSimulatorBody>
     </ResumeSimulatorContainer>
   )
