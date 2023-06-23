@@ -19,9 +19,15 @@ export default async function handle(
     headless: 'new',
   })
 
+  console.log('Browser: ', browser)
+
   const page = await browser.newPage()
 
+  console.log('Page: ', page)
+
   const websiteUrl = `${process.env.NEXT_PUBLIC_URL_API}/finalizado`
+
+  console.log('WebsiteUrl: ', websiteUrl)
 
   await page.goto(websiteUrl, { waitUntil: 'networkidle0' })
 
