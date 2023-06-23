@@ -1,8 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-// import * as fs from 'node:fs'
 import { unlinkSync } from 'node:fs'
-// import puppeteer from 'puppeteer'
-import Chromium from 'chrome-aws-lambda'
+import puppeteer from 'puppeteer'
 
 import { v4 as uuidv4 } from 'uuid'
 
@@ -17,7 +15,7 @@ export default async function handle(
   }
 
   try {
-    const browser = await Chromium.puppeteer.launch({
+    const browser = await puppeteer.launch({
       headless: true,
     })
 
