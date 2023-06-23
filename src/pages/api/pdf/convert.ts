@@ -1,5 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { unlinkSync } from 'node:fs'
+
+import { executablePath } from 'puppeteer'
 import puppeteer from 'puppeteer-core'
 
 import { v4 as uuidv4 } from 'uuid'
@@ -18,7 +20,7 @@ export default async function handle(
   const browser = await puppeteer.launch({
     headless: 'new',
     ignoreHTTPSErrors: true,
-    executablePath: puppeteer.executablePath(),
+    executablePath: executablePath(),
   })
 
   console.log('Browser: ', browser)
