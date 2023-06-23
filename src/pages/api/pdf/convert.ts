@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { unlinkSync } from 'node:fs'
 
-import { executablePath } from 'puppeteer'
+import { executablePath, defaultArgs } from 'puppeteer'
 import puppeteer from 'puppeteer-core'
 
 import { v4 as uuidv4 } from 'uuid'
@@ -18,6 +18,7 @@ export default async function handle(
 
   // try {
   const browser = await puppeteer.launch({
+    args: defaultArgs(),
     headless: 'new',
     ignoreHTTPSErrors: true,
     executablePath: executablePath(),
