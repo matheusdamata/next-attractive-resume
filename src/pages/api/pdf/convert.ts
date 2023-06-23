@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { unlinkSync } from 'node:fs'
-import Chromium from 'chrome-aws-lambda'
+import puppeteer from 'puppeteer-core'
 
 import { v4 as uuidv4 } from 'uuid'
 
@@ -15,10 +15,9 @@ export default async function handle(
   }
 
   // try {
-  const browser = await Chromium.puppeteer.launch({
-    defaultViewport: Chromium.defaultViewport,
-    executablePath: await Chromium.executablePath,
-    headless: Chromium.headless,
+  const browser = await puppeteer.launch({
+    executablePath: puppeteer.executablePath(),
+    headless: 'new',
     ignoreHTTPSErrors: true,
   })
 
