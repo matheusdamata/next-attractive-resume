@@ -15,7 +15,7 @@ export default async function handle(
 
     const page = await browser.newPage()
 
-    const websiteUrl = 'https://criar.matheusdamatag.com.br/finalizado'
+    const websiteUrl = `${process.env.NEXT_PUBLIC_URL_API}/finalizado`
 
     await page.goto(websiteUrl, { waitUntil: 'networkidle0' })
 
