@@ -1,16 +1,24 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 // import * as fs from 'node:fs'
 import { unlinkSync } from 'node:fs'
-import puppeteer from 'puppeteer'
+// import puppeteer from 'puppeteer'
+import Chromium from 'chrome-aws-lambda'
+
 import { v4 as uuidv4 } from 'uuid'
 
 export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
+  if (req.method !== 'GET') {
+    return res.status(405).json({
+      error: 'Method not allowed',
+    })
+  }
+
   try {
-    const browser = await puppeteer.launch({
-      headless: 'new',
+    const browser = await Chromium.puppeteer.launch({
+      headless: true,
     })
 
     const page = await browser.newPage()
@@ -27,7 +35,7 @@ export default async function handle(
       path: `./public/temp/${nameUID}.pdf`,
       margin: { top: '0', right: '0', bottom: '0', left: '0' },
       printBackground: false,
-      format: 'A4',
+      format: 'a4',
     })
 
     await browser.close()
