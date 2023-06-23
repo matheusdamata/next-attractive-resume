@@ -15,7 +15,7 @@ export default async function handle(
 
     const page = await browser.newPage()
 
-    const websiteUrl = 'http://localhost:3000/finalizado'
+    const websiteUrl = 'https://criar.matheusdamatag.com.br/finalizado'
 
     await page.goto(websiteUrl, { waitUntil: 'networkidle0' })
 
