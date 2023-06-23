@@ -16,7 +16,6 @@ export default async function handle(
 
   // try {
   const browser = await puppeteer.launch({
-    executablePath: puppeteer.executablePath(),
     headless: 'new',
     ignoreHTTPSErrors: true,
   })
