@@ -10,7 +10,7 @@ export function Header() {
       <nav>
         <ActiveLink href="/" text="Ínicio" />
         <ActiveLink href="/dados" text="Dados" />
-        <ActiveLink href="/blog" text="Bog" />
+        <ActiveLink href="/blog" text="Blog" />
       </nav>
 
       <SignInButton />

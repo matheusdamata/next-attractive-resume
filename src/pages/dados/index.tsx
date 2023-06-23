@@ -85,7 +85,7 @@ export default function Data() {
 
                     <input
                       type="text"
-                      placeholder="Você é... Front-end ou Banck-end?"
+                      placeholder="Você é... Front-end ou Back-end?"
                       value={office}
                       onChange={(e) => setOffice(e.target.value)}
                     />
