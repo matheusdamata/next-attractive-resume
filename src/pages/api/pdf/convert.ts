@@ -14,7 +14,7 @@ export default async function handle(
     })
   }
 
-  try {
+  // try {
     const browser = await puppeteer.launch({
       headless: 'new',
     })
@@ -47,7 +47,7 @@ export default async function handle(
     return res.status(200).json({
       name: nameUID,
     })
-  } catch (error) {
-    return res.status(404).json({ error })
-  }
+  // } catch (error) {
+  //   return res.status(404).json({ error })
+  // }
 }
