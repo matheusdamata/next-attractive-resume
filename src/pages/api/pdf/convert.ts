@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { unlinkSync } from 'node:fs'
-import puppeteer from 'puppeteer'
+import Chromium from 'chrome-aws-lambda'
 
 import { v4 as uuidv4 } from 'uuid'
 
@@ -15,8 +15,11 @@ export default async function handle(
   }
 
   // try {
-  const browser = await puppeteer.launch({
-    headless: 'new',
+  const browser = await Chromium.puppeteer.launch({
+    defaultViewport: Chromium.defaultViewport,
+    executablePath: await Chromium.executablePath,
+    headless: Chromium.headless,
+    ignoreHTTPSErrors: true,
   })
 
   console.log('Browser: ', browser)
@@ -39,7 +42,7 @@ export default async function handle(
     path: `./public/temp/${nameUID}.pdf`,
     margin: { top: '0', right: '0', bottom: '0', left: '0' },
     printBackground: false,
-    format: 'A4',
+    format: 'a4',
   })
 
   await browser.close()
