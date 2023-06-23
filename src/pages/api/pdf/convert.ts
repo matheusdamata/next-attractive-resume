@@ -16,7 +16,7 @@ export default async function handle(
 
   try {
     const browser = await puppeteer.launch({
-      headless: true,
+      headless: 'new',
     })
 
     const page = await browser.newPage()
@@ -33,7 +33,7 @@ export default async function handle(
       path: `./public/temp/${nameUID}.pdf`,
       margin: { top: '0', right: '0', bottom: '0', left: '0' },
       printBackground: false,
-      format: 'a4',
+      format: 'A4',
     })
 
     await browser.close()
