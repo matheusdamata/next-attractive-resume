@@ -1,7 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { unlinkSync } from 'node:fs'
 
-import chromium from 'chrome-aws-lambda'
+import puppeteer from 'puppeteer-core'
+import chromium from '@sparticuz/chromium'
 
 import { v4 as uuidv4 } from 'uuid'
 
@@ -16,10 +17,10 @@ export default async function handle(
   }
 
   // try {
-  const browser = await chromium.puppeteer.launch({
-    args: [...chromium.args, '--hide-scrollbars', '--disable-web-security'],
+  const browser = await puppeteer.launch({
+    args: chromium.args,
     defaultViewport: chromium.defaultViewport,
-    executablePath: await chromium.executablePath,
+    executablePath: await chromium.executablePath(),
     headless: true,
     ignoreHTTPSErrors: true,
   })
