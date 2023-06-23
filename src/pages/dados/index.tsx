@@ -98,7 +98,7 @@ export default function Data() {
                     />
                   </DataInputContainer>
 
-                  <button onClick={handleTest}>Download</button>
+                  <button onClick={handleTest}>Testar download pdf</button>
                 </>
               ) : step === 2 ? (
                 <>
