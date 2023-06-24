@@ -1,8 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { unlinkSync } from 'node:fs'
 
-import puppeteer from 'puppeteer-core'
-import chromium from '@sparticuz/chromium'
+import puppeteer from 'puppeteer'
 
 import { v4 as uuidv4 } from 'uuid'
 
@@ -16,50 +15,40 @@ export default async function handle(
     })
   }
 
-  // try {
-  const browser = await puppeteer.launch({
-    args: chromium.args,
-    defaultViewport: chromium.defaultViewport,
-    executablePath: await chromium.executablePath(),
-    headless: true,
-    ignoreHTTPSErrors: true,
-  })
+  try {
+    const browser = await puppeteer.launch({
+      headless: 'new',
+    })
 
-  console.log('Browser: ', browser)
+    const page = await browser.newPage()
 
-  const page = await browser.newPage()
+    const websiteUrl = 'https://criar.matheusdamatag.com.br/finalizado'
 
-  console.log('Page: ', page)
+    await page.goto(websiteUrl, { waitUntil: 'networkidle0' })
 
-  const websiteUrl = `${process.env.NEXT_PUBLIC_URL_API}/finalizado`
+    await page.emulateMediaType('screen')
 
-  console.log('WebsiteUrl: ', websiteUrl)
+    const nameUID = uuidv4()
 
-  await page.goto(websiteUrl, { waitUntil: 'networkidle0' })
+    await page.pdf({
+      path: `./public/temp/${nameUID}.pdf`,
+      margin: { top: '0', right: '0', bottom: '0', left: '0' },
+      printBackground: false,
+      format: 'A4',
+    })
 
-  await page.emulateMediaType('screen')
+    await browser.close()
 
-  const nameUID = uuidv4()
+    setTimeout(() => {
+      unlinkSync(`./public/temp/${nameUID}.pdf`)
 
-  await page.pdf({
-    path: `./public/temp/${nameUID}.pdf`,
-    margin: { top: '0', right: '0', bottom: '0', left: '0' },
-    printBackground: false,
-    format: 'a4',
-  })
+      console.log(`Successfully deleted ${nameUID}.pdf`)
+    }, 60000) // 2 minutos
 
-  await browser.close()
-
-  setTimeout(() => {
-    unlinkSync(`./public/temp/${nameUID}.pdf`)
-
-    console.log(`Successfully deleted ${nameUID}.pdf`)
-  }, 60000) // 2 minutos
-
-  return res.status(200).json({
-    name: nameUID,
-  })
-  // } catch (error) {
-  //   return res.status(404).json({ error })
-  // }
+    return res.status(201).json({
+      name: nameUID,
+    })
+  } catch (error) {
+    return res.status(404).json({ error })
+  }
 }
